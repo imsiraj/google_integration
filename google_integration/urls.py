@@ -16,12 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import google_login, google_callback,upload_to_drive,list_drive_files
+from .views import google_login, google_callback,upload_to_drive,list_drive_files,download_file
+from django.conf import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("auth/login/", google_login),
     path("auth/callback/", google_callback),
     path("drive/upload/", upload_to_drive),
     path("drive/list/", list_drive_files),
+    path("drive/download/", download_file),
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

@@ -14,7 +14,10 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+import os
 
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -60,6 +63,9 @@ GOOGLE_CLIENT_SECRET = "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"
 GOOGLE_REDIRECT_URI = "http://127.0.0.1:8000/auth/callback/"
 GOOGLE_AUTH_URI = "https://accounts.google.com/o/oauth2/auth"
 GOOGLE_TOKEN_URI = "https://oauth2.googleapis.com/token"
+GOOGLE_SCOPE = "openid email profile https://www.googleapis.com/auth/drive.file"
+
+
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
